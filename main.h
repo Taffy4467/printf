@@ -1,7 +1,5 @@
 #ifndef our_printf
-#ifndef main.h
 #define our_printf
-#define main.h
 #define NULL ((void *)0)
 #include <stdio.h>
 #include <stdarg.h>
