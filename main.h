@@ -1,32 +1,35 @@
-#ifndef our_printf
-#define our_printf
-#define NULL ((void *)0)
-#include <stdio.h>
+#ifndef PRINTF
+#define PRINTF
 #include <stdarg.h>
 
-/**
- * struct specifier - struct specifier
- * @valid: the valid character.
- * @f: the functions associated.
- */
-typedef struct specifier
-{
-	char *valid;
-	int (*f)(va_list);
-} spec;
+/* _printf - prints a formatted string that replaces directives.*/
 int _printf(const char *format, ...);
-int print_c(va_list args);
-int print_s(va_list args);
-int print_d(va_list args);
-int print_i(va_list args);
-int _putchar(char c);
-int print_percent(va_list args);
-int (*get_func(char x))(va_list args);
-int _print_str(char *string);
-int _print_int(long int var);
-int _printf(const char *format, ...);
-int to_Binary(unsigned int n);
-int to_Octal(unsigned int n);
-int _power_recursion(int x, int y);
-int to_Hexa(unsigned int num);
+
+/* str_len - returns the length of a string. */
+int str_len(char *s);
+
+/* print_char - prints out a single function. */
+int print_char(char c);
+
+/* print_number - prints out a string from an int. */
+void print_number(int n);
+
+/* print_string - prints out a string using print_char*/
+int print_string(char *str);
+
+/* count_digits - returns the number of digits in an int.*/
+int count_digits(int n);
+
+/* replace - returns the length of the argument being used.*/
+int replace(char c, va_list ap);
+
+/* c_dir - returns the length of the c directive.*/
+int c_dir(va_list ap);
+
+/* s_dir - returns the length of the s directive. */
+int s_dir(va_list ap);
+
+/* id_dir - returns the length of the i and d directives. */
+int id_dir(va_list ap);
+
 #endif
