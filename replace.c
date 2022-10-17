@@ -1,6 +1,6 @@
 #include <stdarg.h>
 #include <stdlib.h>
-#include "holberton.h"
+#include "main.h"
 
 /**
  * replace - replaces the directive with the appropriate argument.

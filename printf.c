@@ -1,6 +1,6 @@
 #include <stdarg.h>
 #include <stdlib.h>
-#include "holberton.h"
+#include "main.h"
 
 /**
  * _printf - returns a string output to stdout with the common directives
