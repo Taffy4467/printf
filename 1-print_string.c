@@ -4,11 +4,14 @@
  * print_string - This function prints a string
  * starting at a specific pointer.
  * @str: this variable points to the string.
+ *
  * Return: void
  */
+
 int print_string(char *str)
 {
 	int i;
+
 	i = 0;
 	while (*str != '\0')
 	{
