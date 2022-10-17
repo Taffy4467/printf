@@ -1,35 +1,46 @@
-#ifndef PRINTF
-#define PRINTF
+#ifndef PRINT_F
+#define PRINT_F
+
+#include <unistd.h>
+#include <stdlib.h>
 #include <stdarg.h>
 
-/* _printf - prints a formatted string that replaces directives.*/
+/**
+* struct convert - defines a structure for symbols and functions
+*
+* @sym: The operator
+* @f: The function associated
+*/
+struct convert
+{
+	char *sym;
+	int (*f)(va_list);
+};
+typedef struct convert conver_t;
+
+/*Main functions*/
+int parser(const char *format, conver_t f_list[], va_list arg_list);
 int _printf(const char *format, ...);
+int _write_char(char);
+int print_char(va_list);
+int print_string(va_list);
+int print_percent(va_list);
+int print_integer(va_list);
+int print_number(va_list);
+int print_binary(va_list);
+int print_reversed(va_list arg);
+int rot13(va_list);
+int unsigned_integer(va_list);
+int print_octal(va_list list);
+int print_hex(va_list list);
+int print_heX(va_list list);
 
-/* str_len - returns the length of a string. */
-int str_len(char *s);
+/*Helper functions*/
+unsigned int base_len(unsigned int, int);
+char *rev_string(char *);
+void write_base(char *str);
+char *_memcpy(char *dest, char *src, unsigned int n);
+int print_unsgined_number(unsigned int);
 
-/* print_char - prints out a single function. */
-int print_char(char c);
-
-/* print_number - prints out a string from an int. */
-void print_number(int n);
-
-/* print_string - prints out a string using print_char*/
-int print_string(char *str);
-
-/* count_digits - returns the number of digits in an int.*/
-int count_digits(int n);
-
-/* replace - returns the length of the argument being used.*/
-int replace(char c, va_list ap);
-
-/* c_dir - returns the length of the c directive.*/
-int c_dir(va_list ap);
-
-/* s_dir - returns the length of the s directive. */
-int s_dir(va_list ap);
-
-/* id_dir - returns the length of the i and d directives. */
-int id_dir(va_list ap);
 
 #endif
