@@ -1,7 +1,8 @@
 #include "main.h"
 
 /************************* PRINT CHAR *************************/
-/**print_char - Prints a char
+/**
+ * print_char - Prints a char
  * @types: List a of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
@@ -14,7 +15,8 @@ int print_char(va_list types, char buffer[],
 		int flags, int width, int precision, int size)
 {
 	char c = va_arg(types, int);
-	return(handle_write_char(c, buffer, flags, width, precision, size));
+
+	return (handle_write_char(c, buffer, flags, width, precision, size));
 }
 /************************* PRINT A STRING *************************/
 /**
@@ -32,7 +34,7 @@ int print_string(va_list types, char buffer[],
 {
 	int length = 0, i;
 	char *str = va_arg(types, char *);
-	
+
 	UNUSED(buffer);
 	UNUSED(flags);
 	UNUSED(width);
@@ -46,7 +48,6 @@ int print_string(va_list types, char buffer[],
 	}
 	while (str[length] != '\0')
 		length++;
-	
 	if (precision >= 0 && precision < length)
 		length = precision;
 	if (width > length)
@@ -127,10 +128,11 @@ int print_int(va_list types, char buffer[],
 		num /= 10;
 	}
 	i++;
-	return(write_number(is_negative, i, buffer, flags, width, precision, size));
+	return (write_number(is_negative, i, buffer, flags, width, precision, size));
 }
 /************************* PRINT BINARY **********************/
- /**Print_binary - Prints an unsigned number
+ /**
+  * Print_binary - Prints an unsigned number
   * @types: Lista of arguments
   * @buffer: Buffer array to handle print
   * @flags:  Calculates active flags
